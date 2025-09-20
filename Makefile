@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: furizalex <furizalex@student.42.fr>        +#+  +:+       +#+         #
+#    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 12:01:54 by furizalex         #+#    #+#              #
-#    Updated: 2025/08/11 13:19:18 by furizalex        ###   ########.fr        #
+#    Updated: 2025/09/19 21:00:01 by alechin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ CYAN := \033[1;36m
 all: $(NAME)
 
 $(NAME): $(OBJECTS) $(LIBFT)
-	@echo "\n(CYAN)Compiling the doom demake...$(RESET)"
+	@echo "\n(CYAN)Compiling the wolfenstein demake...$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -Imlx_linux -O3 -o 
 
 $(OBJECT_DIRECTORY)/%.o: %.c
