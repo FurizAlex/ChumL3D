@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:19 by alechin           #+#    #+#             */
-/*   Updated: 2025/09/20 13:20:05 by alechin          ###   ########.fr       */
+/*   Updated: 2025/10/20 13:32:43 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include <stdio.h>
+# include <stdbool.h>
 # include <fcntl.h>
 # include <sys/time.h>
 # include "../libft/libft.h"
@@ -58,9 +59,17 @@ typedef struct s_sprite
 
 typedef struct s_main
 {
-	void	*mlx_pointer;
-	void	*win_pointer;
+	void			*mlx_pointer;
+	void			*win_pointer;
+	struct s_sprite	*sprites;
 }	t_main;
+
+typedef struct s_map
+{
+	int		width;
+	int		height;
+	char	**layout;
+}	t_map;
 
 /*	--	GENERAL	--	*/
 void	error2exit(char *message, int status);

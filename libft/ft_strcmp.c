@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/19 21:07:55 by alechin           #+#    #+#             */
-/*   Updated: 2025/10/20 11:49:13 by alechin          ###   ########.fr       */
+/*   Created: 2025/10/20 12:32:11 by alechin           #+#    #+#             */
+/*   Updated: 2025/10/20 12:40:39 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Cub3d.h"
+#include "libft.h"
 
-void	error2exit(char *message, int status)
+int	ft_strcmp(char *s1, char *s2)
 {
-	perror(message);
-	exit(status);
-}
+	int i;
 
-void	window_handler(t_main **mlx)
-{
-	return ;
-}
-
-int	main(int argc, char *argv[])
-{
-	if (argc != 2)
-		error2exit("Error: Invalid Number of Arguments\n", 0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

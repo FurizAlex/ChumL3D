@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:48:19 by alechin           #+#    #+#             */
-/*   Updated: 2025/09/20 13:18:59 by alechin          ###   ########.fr       */
+/*   Updated: 2025/10/20 11:39:59 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	readfile(int argc, char *argv[], t_main	**game)
 	*game = malloc(sizeof(t_main));
 	if (!*game)
 		error2exit("Error: Struct doesn't exist\n", 0);
-	
+	(*game)->sprites = NULL;
 }

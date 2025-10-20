@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/19 21:07:55 by alechin           #+#    #+#             */
-/*   Updated: 2025/10/20 11:49:13 by alechin          ###   ########.fr       */
+/*   Created: 2025/10/20 11:54:55 by alechin           #+#    #+#             */
+/*   Updated: 2025/10/20 11:57:56 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Cub3d.h"
+#include "Parsing.h"
+#include "Cub3d.h"
 
-void	error2exit(char *message, int status)
+/* Detects Whitespace using a boolean */
+bool	detect_whitespace(char *string)
 {
-	perror(message);
-	exit(status);
-}
+	int	i;
 
-void	window_handler(t_main **mlx)
-{
-	return ;
-}
-
-int	main(int argc, char *argv[])
-{
-	if (argc != 2)
-		error2exit("Error: Invalid Number of Arguments\n", 0);
+	i = 0;
+	while (string[i])
+	{
+		if (string[i] == ' ' || string[i] == '\t')
+			return (true);
+		i++;
+	}
+	return (false);
 }
