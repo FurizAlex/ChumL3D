@@ -9,6 +9,9 @@ SOURCE = \
 				ft_split.c		ft_strlcat.c	ft_strnstr.c	ft_toupper.c		ft_isalpha.c \
 				ft_memchr.c		ft_putchar_fd.c ft_strchr.c		ft_strlcpy.c		ft_strrchr.c \
 				ft_strcmp.c \
+				ft_printf/ft_printf.c			ft_printf/ft_printf_utils.c							\
+				ft_printf/ft_printf_second_utils.c													\
+				get_next_line/get_next_line.c	get_next_line/get_next_line_utils.c					\
 BONUS = \
 				ft_lstadd_back.c	ft_lstclear.c		ft_lstiter.c	ft_lstmap.c \
 				ft_lstsize.c		ft_lstadd_front.c	ft_lstdelone.c	ft_lstlast.c \
