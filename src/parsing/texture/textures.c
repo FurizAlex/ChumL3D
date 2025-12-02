@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:42:58 by alechin           #+#    #+#             */
-/*   Updated: 2025/11/28 21:01:13 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/02 13:44:17 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ bool	is_texture(t_main *main, char *line, int *texture)
 
 	detect_idx = texture_detector(line);
 	if (detect_idx < 0)
-		return (0);
+		return (false);
 	if (main->texture_path[detect_idx] != NULL)
 	{
 		free(line);
@@ -93,5 +93,5 @@ bool	is_texture(t_main *main, char *line, int *texture)
 	main->texture_path[detect_idx] = line;
 	(*texture)++;
 	main->map_start++;
-	return (1);
+	return (true);
 }

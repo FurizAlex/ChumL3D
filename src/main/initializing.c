@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bootloader.c                                       :+:      :+:    :+:   */
+/*   initializing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/19 23:49:53 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/02 15:36:37 by alechin          ###   ########.fr       */
+/*   Created: 2025/11/30 15:06:20 by alechin           #+#    #+#             */
+/*   Updated: 2025/11/30 15:22:03 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/Cub3d.h"
 
-t_main	*struct_main(void)
+int	initializing_mlx(t_main *main, t_map *map)
 {
-	static t_main	instance;
-
-	return (&instance);
-}
-
-t_images	*struct_image(void)
-{
-	static t_images	instance;
-
-	return (&instance);
+	main->mlx_pointer = mlx_init();
+	if (!main->mlx_pointer)
+		return (1);
+	main->win_pointer = mlx_new_window(main->mlx_pointer, WIDTH, HEIGHT, NAME);
+	
 }
