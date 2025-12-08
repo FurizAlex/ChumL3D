@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:19 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/08 11:14:54 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/08 16:15:40 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,10 @@ typedef struct s_main
 	int				map_start;
 	char			*mapfile_name;
 	char			**texture_path;
+	t_map			*map;
 	t_time			time;
 	t_images		screen;
+	t_images		menu;
 	t_state_machine	states;
 	struct s_sprite	*sprites;
 }	t_main;
@@ -136,6 +138,10 @@ typedef struct s_map
 {
 	int		width;
 	int		height;
+	int		dir;
+	int		x_position;
+	int		y_position;
+	bool	player_card;
 	char	**layout;
 }	t_map;
 
@@ -150,5 +156,7 @@ typedef struct s_time
 void	error2exit(char *message, int status);
 
 t_main	*struct_main(void);
+int		initializing_mlx(t_main *main, t_map *map);
+int 	initializing_menu(t_main *main);
 
 #endif

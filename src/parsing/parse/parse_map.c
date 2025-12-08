@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:45:42 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/02 11:31:50 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/08 16:16:38 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ static bool	is_valid_map_character(char is_it)
 {
 	return (is_it == ' ' || is_it == '0' || is_it == '1'
 		|| is_it == 'N' || is_it == 'S' || is_it == 'E' || is_it == 'W');
+}
+
+/* Gets the player position */
+int	player_position(t_main *main, int i, int j)
+{
+	if (!main->map->player_card)
+		error2exit("Error: More than one player on the map\n", 1);
+	main->map->x_position = i;
+	main->map->y_position = j;
+	main->map->dir = main->map->layout[j][i];
+	main->map->player_card = false;
 }
 
 /* It parses the map content.. */
