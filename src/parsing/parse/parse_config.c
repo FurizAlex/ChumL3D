@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:51:07 by alechin           #+#    #+#             */
-/*   Updated: 2025/10/20 12:45:00 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/08 10:39:39 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*character_identifier(char *line)
 
 /* Checks all valid identifiers on the map
 and return the valid identifier */
-const char *validate_identifier(char *line)
+const char	*validate_identifier(char *line)
 {
 	int			i;
 	char		*dummy_identifiers;

@@ -13,7 +13,7 @@
 #include "Cub3d.h"
 #include "Parsing.h"
 
-int parse_file(t_main *main)
+int	parse_file(t_main *main)
 {
 	char	*line;
 	int		texture;
@@ -50,4 +50,6 @@ int	parse_scene(t_main *main, t_map *map)
 	if (parse_file(main))
 		return (error2exit("Error: .Cub file error!\n", 2), 2);
 	if (verify_texture(main, img));
+		return (close_button(main), 1);
+	return (0);
 }

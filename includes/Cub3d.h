@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:19 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/02 16:05:04 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/08 11:14:54 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,21 @@
 # include "../mlx/mlx.h"
 
 /*	--	CONTROLS	--	*/
+/* -- WASD --*/
 # define UP 87
 # define DOWN 83
 # define LEFT 65
 # define RIGHT 68
+/* -- LEFT ARROW & RIGHT ARROW -- */
+# define LEFT_L_ARROW 65361
+# define RIGHT_R_ARROW 65363
+/* -- PRETTY SELF-EXPLANETARY -- */
 # define ESCAPE 65307
 # define SPACE 32
+/* -- E -- */
+# define DOOR 101
+/* -- M -- */
+# define MINIMAP 109
 
 /* --  SCREEN SPACE  -- */
 # define NAME "ChumL3D"
@@ -108,7 +117,7 @@ typedef struct s_main
 	char			**texture_path;
 	t_time			time;
 	t_images		screen;
-	t_state_machine	*states;
+	t_state_machine	states;
 	struct s_sprite	*sprites;
 }	t_main;
 
