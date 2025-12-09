@@ -1,1 +1,1 @@
-<img width="180" height="90" alt="c3d_titleScreen" src="https://github.com/user-attachments/assets/df6d9a93-5f48-4c55-8336-57f61f392eef" />
+<img width="1920" height="1080" alt="c3d_titleScreenExpanded" src="https://github.com/user-attachments/assets/c40c0621-fec4-48dd-a3bd-c2b9640c99ac" />
