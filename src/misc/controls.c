@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:40:49 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/08 11:18:29 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/11 16:17:27 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	close_button(t_main *main)
 		mlx_destroy_display(main->mlx_pointer);
 		free(main->mlx_pointer);
 	}
-	close(main->mapfile_name);
+	close(main->mapfile_id);
 	exit(0);
 }
 
@@ -46,15 +46,14 @@ int	movement_keys(int code, t_main *main)
 	return (0);
 }
 
-/* -- DOOR TOGGLE NEEDS TO BE MADE -- */
-int utility_keys(int code, t_main *main)
+/* -- DOOR TOGGLE NEEDS TO BE MADE -- 
+	-- Essentially the 'release' keys -- */
+int	utility_keys(int code, t_main *main)
 {
 	if (code == ESCAPE)
 		close_button(main);
 	if (code == SPACE)
 		main->states.menu_toggle = !main->states.menu_toggle;
-	if (code == DOOR)
-		return (NULL);
 	if (code == MINIMAP)
 		main->states.minimap_toggle = !main->states.minimap_toggle;
 	return (0);

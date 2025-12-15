@@ -5,5 +5,13 @@
 		"libft.h": "c",
 		"time.h": "c",
 		"mlx.h": "c"
-	}
+	},
+	"makefile.configureOnOpen": false,
+	"python-envs.pythonProjects": [
+		{
+			"path": "minilibx-linux",
+			"envManager": "ms-python.python:venv",
+			"packageManager": "ms-python.python:pip"
+		}
+	]
 }

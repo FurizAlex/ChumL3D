@@ -6,11 +6,12 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:42:58 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/02 13:44:17 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/11 16:21:21 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cub3d.h"
+#include "Parsing.h"
 
 void	free_texture_paths(t_main *main)
 {
@@ -41,11 +42,11 @@ int	get_xpm_data(t_main *main, t_images *img, int i)
 	if (newline)
 		*newline = '\0';
 	img[i].image = mlx_xpm_file_to_image(main->mlx_pointer,
-					path, &img[i].width, &img[i].height);
+			path, &img[i].width, &img[i].height);
 	if (!img[i].image)
 		return (1);
 	img[i].data = mlx_get_data_addr(img[i].image, &img[i].bpp,
-					&img[i].line_length, &img[i].end);
+			&img[i].line_length, &img[i].end);
 	return (0);
 }
 
@@ -54,7 +55,7 @@ int	verify_texture(t_main *main, t_images *img)
 	int	i;
 
 	i = 0;
-	while (i <= 3)
+	while (i <= 5)
 	{
 		if (!main->texture_path[i])
 			error2exit("Error: Texture Error!", 1);

@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 15:44:35 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/08 16:50:39 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/11 16:18:19 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ int	check_map_2d_array(t_main *main)
 		while (++i < main->map->width)
 		{
 			if (i == 0 || j == 0
-				|| i == main->map->width - 1|| j == main->map->height - 1)
+				|| i == main->map->width - 1 || j == main->map->height - 1)
+			{
 				if (main->map->layout[j][i] != '1')
 					error2exit("Error: The walls aren't enclosed", 1);
+			}
 			else if (main->map->layout[j][i] == 'N'
 				|| main->map->layout[j][i] == 'S'
 				|| main->map->layout[j][i] == 'W'
@@ -41,11 +43,11 @@ int	check_map_2d_array(t_main *main)
 	return (0);
 }
 
-int get_map_2d_array_xtra(t_main *main)
+int	get_map_2d_array_xtra(t_main *main)
 {
-	int	i;
-	int	j;
-	int	*temp;
+	int		i;
+	int		j;
+	char	*temp;
 
 	i = -1;
 	j = -1;
@@ -53,7 +55,7 @@ int get_map_2d_array_xtra(t_main *main)
 	{
 		temp = get_next_line(main->mapfile_id);
 		if (temp == NULL)
-			break;
+			break ;
 		main->map->layout[j] = malloc((main->map->width + 1) * sizeof(int));
 		if (!main->map->layout)
 			return (1);

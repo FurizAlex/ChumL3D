@@ -6,15 +6,15 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 14:44:08 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/02 14:54:31 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/11 16:17:45 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cub3d.h"
 
-time_t time_dial(void)
+time_t	time_dial(void)
 {
-	struct timeval time_value;
+	struct timeval	time_value;
 
 	gettimeofday(&time_value, NULL);
 	return (time_value.tv_sec + time_value.tv_usec * 1e-6);
