@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:51:07 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/08 10:39:39 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/11 16:20:24 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 is which and also removes any whitespace in said line*/
 static char	*character_identifier(char *line)
 {
-	int offset;
-	
+	int	offset;
+
 	offset = 0;
 	while (line[offset])
 	{
 		if (detect_whitespace(line[offset]))
-			break;
+			break ;
 		offset++;
 	}
 	return (ft_substr(line, 0, offset));
@@ -38,7 +38,7 @@ const char	*validate_identifier(char *line)
 	int			i;
 	char		*dummy_identifiers;
 	const char	*validate_id;
-	const static char *validate_ids[MAX_CONFIGS] = {
+	const static char	*validate_ids[MAX_CONFIGS] = {
 		"NO", "SO", "WE", "EA", "F", "C"
 	};
 

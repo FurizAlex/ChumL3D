@@ -26,7 +26,7 @@ int	parse_file(t_main *main)
 		line = get_next_line(main->mapfile_id);
 		if (!line)
 			return (free(line), 1);
-		main->res = is_texture(main, line, texture);
+		main->res = is_texture(main, line, &texture);
 		if (!main->res)
 			return (free_texture_paths(main), 1);
 		if (main->res)
@@ -49,7 +49,11 @@ int	parse_scene(t_main *main, t_map *map)
 		main->texture_path[index] = NULL;
 	if (parse_file(main))
 		return (error2exit("Error: .Cub file error!\n", 2), 2);
-	if (verify_texture(main, img));
+	if (verify_texture(main, img))
+		return (close_button(main), 1);
+	if (parse_map_content(main, map))
+		return (close_button(main), 1);
+	if (initializing_menu(main))
 		return (close_button(main), 1);
 	return (0);
 }

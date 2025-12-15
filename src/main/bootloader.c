@@ -6,11 +6,11 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:49:53 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/02 15:36:37 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/11 16:12:21 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Cub3d.h"
+#include "Cub3d.h"
 
 t_main	*struct_main(void)
 {
