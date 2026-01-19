@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:07:55 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/15 12:58:44 by alechin          ###   ########.fr       */
+/*   Updated: 2026/01/19 13:57:42 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	window_handler(t_main *main)
 
 void	error2exit(char *message, int status)
 {
-	perror(message);
+	ft_printf("%s", message);
 	exit(status);
 }
 
@@ -59,9 +59,9 @@ int	main(int argc, char *argv[])
 	ft_memset(images, 0, sizeof(*images) * 4);
 	main.images = images;
 	main.states.minimap_toggle = true;
-	if (initializing_mlx(&main, &map))
-		return (1);
 	if (parse_scene(&main, &map))
+		return (1);
+	if (initializing_mlx(&main, &map))
 		return (1);
 	window_handler(&main);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:42:58 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/11 16:21:21 by alechin          ###   ########.fr       */
+/*   Updated: 2026/01/19 14:03:34 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	get_xpm_data(t_main *main, t_images *img, int i)
 
 	line = main->texture_path[i];
 	path = ft_strchr(line, ' ') + 1;
+	if (!path)
+		return (1);
 	newline = ft_strchr(path, '\n');
 	if (newline)
 		*newline = '\0';
@@ -55,7 +57,7 @@ int	verify_texture(t_main *main, t_images *img)
 	int	i;
 
 	i = 0;
-	while (i <= 5)
+	while (i <= 3)
 	{
 		if (!main->texture_path[i])
 			error2exit("Error: Texture Error!", 1);
@@ -71,11 +73,11 @@ int	texture_detector(char *line)
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		return (0);
 	if (ft_strncmp(line, "SO ", 3) == 0)
-		return (0);
+		return (1);
 	if (ft_strncmp(line, "WE ", 3) == 0)
-		return (0);
+		return (2);
 	if (ft_strncmp(line, "EA ", 3) == 0)
-		return (0);
+		return (3);
 	return (-1);
 }
 
