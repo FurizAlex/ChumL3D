@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:54:55 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/11 16:20:51 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/24 00:47:32 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,12 @@ int	check_valid_map(char *temp)
 		if (is_valid_map_character(temp[i]))
 			i++;
 		else
+		{
+			printf("Invalid char: '%c' (ASCII %d) at position %d\n",
+				temp[i], temp[i], i);
+			printf("Line: [%s]\n", temp);
 			error2exit("Error: Invalid tiles on map\n", 2);
+		}
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
+#    By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 12:01:54 by furizalex         #+#    #+#              #
-#    Updated: 2025/12/11 16:10:22 by alechin          ###   ########.fr        #
+#    Updated: 2026/02/04 18:36:46 by rpadasia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,18 @@ SOURCE = \
 	src/main/bootloader.c					\
 	src/main/cub3d.c						\
 	src/main/initializing.c					\
+	src/main/loop.c							\
 	src/misc/controls.c						\
+	src/misc/movement.c						\
 	src/misc/fps.c							\
 	src/parsing/parse/parse_checker.c		\
 	src/parsing/parse/parse_map.c			\
 	src/parsing/parse/parse.c				\
 	src/parsing/parse/parsing_utils.c		\
-	src/parsing/texture/textures.c
+	src/parsing/texture/textures.c			\
+	src/parsing/texture/textures2.c			\
+	src/raycasting/cast_ray.c				\
+	src/raycasting/casting_utils.c			\
 
 OBJECTS = $(addprefix $(OBJECT_DIRECTORY)/, $(SOURCE:.c=.o))
 

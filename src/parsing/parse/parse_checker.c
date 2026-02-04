@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 15:44:35 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/11 16:18:19 by alechin          ###   ########.fr       */
+/*   Updated: 2026/01/09 17:57:18 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	check_map_2d_array(t_main *main)
 	j = -1;
 	while (++j < main->map->height)
 	{
+		i = -1;
 		while (++i < main->map->width)
 		{
 			if (i == 0 || j == 0
@@ -81,7 +82,7 @@ int	get_map_2d_array(t_main *main)
 	main->mapfile_id = open(main->mapfile_name, O_RDONLY);
 	while (i++ < main->map_start)
 	{
-		temp = get_next_line(main->map_start);
+		temp = get_next_line(main->mapfile_id);
 		if (!temp)
 			return (1);
 		i++;

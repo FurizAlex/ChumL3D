@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:42:58 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/11 16:21:21 by alechin          ###   ########.fr       */
+/*   Updated: 2025/12/24 00:19:10 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	verify_texture(t_main *main, t_images *img)
 	int	i;
 
 	i = 0;
-	while (i <= 5)
+	while (i <= 3)
 	{
 		if (!main->texture_path[i])
 			error2exit("Error: Texture Error!", 1);
@@ -71,11 +71,11 @@ int	texture_detector(char *line)
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		return (0);
 	if (ft_strncmp(line, "SO ", 3) == 0)
-		return (0);
+		return (1);
 	if (ft_strncmp(line, "WE ", 3) == 0)
-		return (0);
+		return (2);
 	if (ft_strncmp(line, "EA ", 3) == 0)
-		return (0);
+		return (3);
 	return (-1);
 }
 

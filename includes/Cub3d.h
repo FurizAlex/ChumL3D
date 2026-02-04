@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:19 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/15 12:43:35 by alechin          ###   ########.fr       */
+/*   Updated: 2026/02/04 20:05:36 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <sys/time.h>
+# include <math.h>
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
+
 /*	--	CONTROLS	--	*/
 /* -- WASD --*/
-# define UP 87
-# define DOWN 83
-# define LEFT 65
-# define RIGHT 68
+# define UP 119
+# define DOWN 115
+# define LEFT 97
+# define RIGHT 100
 /* -- LEFT ARROW & RIGHT ARROW -- */
 # define LEFT_L_ARROW 65361
 # define RIGHT_R_ARROW 65363
@@ -63,6 +65,7 @@
 
 /* --  COLORS  -- */
 # define WALL_COLOR 0xFFFFFF
+# define REALBLACK 0x000000
 /*# define FLOOR_COLOR 0xFFFFFF*/
 # define PLAYER_COLOR 0xFFFFFF
 # define MAP_RAY_COLOR 0xFFFFFF
@@ -133,6 +136,39 @@ typedef struct s_state_machine
 	bool	menu_toggle;
 }	t_state_machine;
 
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_player;
+
+typedef struct s_ray
+{
+	double	camera_x;
+	double	dir_x;
+	double	dir_y;
+	int		map_x;
+	int		map_y;
+	int		tex_x;
+	int		tex_y;
+	double	side_dist_x;//Distance to next X gridline
+	double	side_dist_y;// Distance to next Y gridline
+	double	delta_dist_x;// Distance between X gridlines
+	double	delta_dist_y;// D btwn Y gridlines
+	double	perp_dist_to_wall;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;//NS or EW only rmbr
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+}	t_ray;
+
 typedef struct s_main
 {
 	void			*mlx_pointer;
@@ -142,6 +178,8 @@ typedef struct s_main
 	int				map_start;
 	char			*mapfile_name;
 	char			**texture_path;
+	t_ray			current_ray;
+	t_player		player;
 	t_map			*map;
 	t_time			time;
 	t_images		*images;
@@ -150,6 +188,7 @@ typedef struct s_main
 	t_state_machine	states;
 	struct s_sprite	*sprites;
 }	t_main;
+
 
 /*	--	GENERAL	--	*/
 void	error2exit(char *message, int status);
