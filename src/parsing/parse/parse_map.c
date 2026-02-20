@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:45:42 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/11 16:20:44 by alechin          ###   ########.fr       */
+/*   Updated: 2026/01/09 17:56:20 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 bool	is_valid_map_character(char is_it)
 {
 	return (is_it == ' ' || is_it == '0' || is_it == '1'
-		|| is_it == 'N' || is_it == 'S' || is_it == 'E' || is_it == 'W');
+		|| is_it == 'N' || is_it == 'S' || is_it == 'E'
+		|| is_it == 'W' || is_it == '\n');
 }
 
 /* Gets the player position */
@@ -45,14 +46,20 @@ int	parse_map_content(t_main *main, t_map *map)
 		temp = get_next_line(main->mapfile_id);
 		if (!temp)
 			break ;
-		else if (check_valid_map(temp))
+		if (temp[0] == '\n')
+		{
+			free(temp);
+			main->map_start++;
+			continue ;
+		}
+		if (check_valid_map(temp))
 			return (free(temp), 1);
-		else if ((int)ft_strlen(temp) > map->width)
+		if ((int)ft_strlen(temp) > map->width)
 			map->width = ft_strlen(temp) - 1;
 		free(temp);
 		i++;
 	}
-	map->height = 1;
+	map->height = i;
 	close(main->mapfile_id);
 	get_map_2d_array(main);
 	if (check_map_2d_array(main))
