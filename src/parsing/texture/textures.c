@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:42:58 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/24 00:19:10 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/02/23 16:00:29 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	get_xpm_data(t_main *main, t_images *img, int i)
 
 	line = main->texture_path[i];
 	path = ft_strchr(line, ' ') + 1;
+	if (!path)
+		return (1);
 	newline = ft_strchr(path, '\n');
 	if (newline)
 		*newline = '\0';
@@ -96,3 +98,4 @@ bool	is_texture(t_main *main, char *line, int *texture)
 	main->map_start++;
 	return (true);
 }
+

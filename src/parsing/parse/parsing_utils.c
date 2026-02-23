@@ -6,7 +6,7 @@
 /*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:54:55 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/24 00:47:32 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/02/23 21:03:04 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,9 @@
 #include "Cub3d.h"
 
 /* Detects Whitespace using a boolean */
-bool	detect_whitespace(char *string)
+bool	detect_whitespace(char c)
 {
-	int	i;
-
-	i = 0;
-	while (string[i])
-	{
-		if (string[i] == ' ' || string[i] == '\t')
-			return (true);
-		i++;
-	}
-	return (false);
+	return (c == ' ' || c == '\t');
 }
 
 /* Checks for a valid map */
