@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_config.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:51:07 by alechin           #+#    #+#             */
-/*   Updated: 2025/12/11 16:20:24 by alechin          ###   ########.fr       */
+/*   Updated: 2026/02/23 21:05:33 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static char	*character_identifier(char *line)
 and return the valid identifier */
 const char	*validate_identifier(char *line)
 {
-	int			i;
-	char		*dummy_identifiers;
-	const char	*validate_id;
-	const static char	*validate_ids[MAX_CONFIGS] = {
+	int					i;
+	char				*dummy_identifiers;
+	const char			*validate_id;
+	static const char	*validate_ids[MAX_CONFIGS] = {
 		"NO", "SO", "WE", "EA", "F", "C"
 	};
 

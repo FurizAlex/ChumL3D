@@ -49,21 +49,19 @@ int	parse_file(t_main *main)
 
 int	parse_scene(t_main *main, t_map *map)
 {
-	int			index;
-	t_images	*img;
+	int	index;
 
 	index = -1;
-	img = struct_image();
 	main->texture_path = malloc(sizeof(char *) * 5);
+	if (!main->texture_path)
+		return (1);
 	while (++index < 5)
 		main->texture_path[index] = NULL;
 	if (parse_file(main))
-		return (error2exit("Error: .Cub file error!\n", 2), 2);
-	if (verify_texture(main, img))
+		return (error2exit("Error: .cub file error!\n", 2), 2);
+	if (verify_texture(main, main->images))
 		return (close_button(main), 1);
 	if (parse_map_content(main, map))
-		return (close_button(main), 1);
-	if (initializing_menu(main))
 		return (close_button(main), 1);
 	return (0);
 }
@@ -72,7 +70,7 @@ void	init_player(t_main *main)
 {
 	main->player.pos_x = main->map->x_position + 0.5;
 	main->player.pos_y = main->map->y_position + 0.5;
-	// Set direction based on parsed direction (N/S/E/W)
+
 	if (main->map->dir == 'N')
 	{
 		main->player.dir_x = 0;
