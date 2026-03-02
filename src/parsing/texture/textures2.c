@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:58:41 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/02/04 14:41:03 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:38:51 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,18 @@
 
 int	load_textures(t_main *main)
 {
-	main->images[0].image = mlx_xpm_file_to_image(main->mlx_pointer,
-			"textures/c3d_castleTownWall01.xpm",
-			&main->images[0].width, &main->images[0].height);
-	main->images[1].image = mlx_xpm_file_to_image(main->mlx_pointer,
-			"textures/c3d_castleTownWall02.xpm",
-			&main->images[1].width, &main->images[1].height);
-	main->images[2].image = mlx_xpm_file_to_image(main->mlx_pointer,
-			"textures/c3d_castleTownWall03.xpm",
-			&main->images[2].width, &main->images[2].height);
-	main->images[3].image = mlx_xpm_file_to_image(main->mlx_pointer,
-			"textures/c3d_castleTownWall04.xpm",
-			&main->images[3].width, &main->images[3].height);
-	if (!main->images[0].image || !main->images[1].image
-		|| !main->images[2].image || !main->images[3].image)
+	if (load_single_texture(main, 0, "textures/c3d_castleTownWall01.xpm"))
 		return (1);
-	main->images[0].data = mlx_get_data_addr(main->images[0].image,
-			&main->images[0].bpp, &main->images[0].line_length,
-			&main->images[0].end);
-	main->images[1].data = mlx_get_data_addr(main->images[1].image,
-			&main->images[1].bpp, &main->images[1].line_length,
-			&main->images[1].end);
-	main->images[2].data = mlx_get_data_addr(main->images[2].image,
-			&main->images[2].bpp, &main->images[2].line_length,
-			&main->images[2].end);
-	main->images[3].data = mlx_get_data_addr(main->images[3].image,
-			&main->images[3].bpp, &main->images[3].line_length,
-			&main->images[3].end);
+	if (load_single_texture(main, 1, "textures/c3d_castleTownWall02.xpm"))
+		return (1);
+	if (load_single_texture(main, 2, "textures/c3d_castleTownWall03.xpm"))
+		return (1);
+	if (load_single_texture(main, 3, "textures/c3d_castleTownWall04.xpm"))
+		return (1);
+	set_texture_data(main, 0);
+	set_texture_data(main, 1);
+	set_texture_data(main, 2);
+	set_texture_data(main, 3);
 	return (0);
 }
 
@@ -107,30 +92,14 @@ void	calculate_wall_x(t_main *main, t_ray *ray)
 */
 void	draw_wall_stripe_textured(t_main *main, int x)
 {
-	int				y;
-	int				tex_idx;
-	int				tex_y;
-	double			step;
-	double			tex_pos;
-	unsigned int	color;
+	t_draw	d;
 
-	y = 0;
-	while (y < main->current_ray.draw_start)
-		put_pixel(main, x, y++, 0x87CEEB);
-	tex_idx = select_texture(&main->current_ray);
-	step = 1.0 * main->images[tex_idx].height / main->current_ray.line_height;
-	tex_pos = (main->current_ray.draw_start - HEIGHT / 2
-			+ main->current_ray.line_height / 2) * step;
-	while (y < main->current_ray.draw_end)
-	{
-		tex_y = (int)tex_pos & (main->images[tex_idx].height - 1);
-		tex_pos += step;
-		color = get_texture_pixel(&main->images[tex_idx],
-				main->current_ray.tex_x, tex_y);
-		if (main->current_ray.side == 1)
-			color = (color >> 1) & 0x7F7F7F;
-		put_pixel(main, x, y++, color);
-	}
-	while (y < HEIGHT)
-		put_pixel(main, x, y++, 0x8B4513);
+	d.y = draw_ceiling(main, x);
+	d.tex_idx = select_texture(&main->current_ray);
+	d.step = 1.0 * main->images[d.tex_idx].height
+		/ main->current_ray.line_height;
+	d.tex_pos = (main->current_ray.draw_start - HEIGHT / 2
+			+ main->current_ray.line_height / 2) * d.step;
+	draw_textured_wall(main, x, &d);
+	draw_floor(main, x, d.y);
 }

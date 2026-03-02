@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+         #
+#    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 12:01:54 by furizalex         #+#    #+#              #
-#    Updated: 2026/02/04 18:36:46 by rpadasia         ###   ########.fr        #
+#    Updated: 2026/03/02 11:36:15 by alechin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,15 @@ SOURCE = \
 	src/misc/movement.c						\
 	src/misc/fps.c							\
 	src/parsing/parse/parse_checker.c		\
+	src/parsing/parse/parse_directions.c	\
 	src/parsing/parse/parse_map.c			\
+	src/parsing/parse/parse_map_utils.c		\
 	src/parsing/parse/parse.c				\
 	src/parsing/parse/parsing_utils.c		\
 	src/parsing/texture/textures.c			\
 	src/parsing/texture/textures2.c			\
+	src/parsing/texture/texture_loader.c	\
+	src/parsing/texture/draw_passes.c		\
 	src/raycasting/cast_ray.c				\
 	src/raycasting/casting_utils.c			\
 

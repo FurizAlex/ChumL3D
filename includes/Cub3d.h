@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:19 by alechin           #+#    #+#             */
-/*   Updated: 2026/02/04 20:05:36 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:40:28 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
-
 
 /*	--	CONTROLS	--	*/
 /* -- WASD --*/
@@ -58,8 +57,8 @@
 # define MOUSE_SENSITIVITY 0.005
 
 /* --  MAPS  -- Ryan you deal with this k? */
-# define MAP_OFFSET NULL
-# define MAP_RAY_COUNT NULL
+# define MAP_OFFSET 0
+# define MAP_RAY_COUNT 0
 # define WIDTH_TILES 16
 # define HEIGHT_TILES 16
 
@@ -91,6 +90,16 @@ typedef struct s_images
 	int		line_length;
 	int		end;
 }	t_images;
+
+typedef struct s_draw
+{
+	int				y;
+	int				tex_idx;
+	int				tex_y;
+	double			step;
+	double			tex_pos;
+	unsigned int	color;
+}	t_draw;
 
 typedef struct s_map
 {
@@ -189,12 +198,11 @@ typedef struct s_main
 	struct s_sprite	*sprites;
 }	t_main;
 
-
 /*	--	GENERAL	--	*/
 void	error2exit(char *message, int status);
 
 t_main	*struct_main(void);
 int		initializing_mlx(t_main *main, t_map *map);
-int 	initializing_menu(t_main *main);
+int		initializing_menu(t_main *main);
 
 #endif

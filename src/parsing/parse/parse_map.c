@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:45:42 by alechin           #+#    #+#             */
-/*   Updated: 2026/02/23 21:34:38 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:12:44 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cub3d.h"
 #include "Parsing.h"
 
-/* Checks for a valid character in the map; is a boolean */
-bool	is_valid_map_character(char is_it)
+/* Checks for a valid character in the map */
+bool	is_valid_map_character(char c)
 {
-	return (is_it == ' ' || is_it == '0' || is_it == '1'
-		|| is_it == 'N' || is_it == 'S' || is_it == 'E'
-		|| is_it == 'W' || is_it == '\n');
+	return (c == ' ' || c == '0' || c == '1'
+		|| c == 'N' || c == 'S'
+		|| c == 'E' || c == 'W'
+		|| c == '\n');
 }
 
 /* Gets the player position */
@@ -30,64 +31,7 @@ int	player_position(t_main *main, int i, int j)
 	main->map->layout[j][i] = '0';
 	main->map->x_position = i;
 	main->map->y_position = j;
-	main->map->player_card = false;
-	return (0);
-}
-
-/* Calculate line length without newline */
-static int	get_line_len(char *line)
-{
-	int	len;
-
-	len = ft_strlen(line);
-	if (len > 0 && line[len - 1] == '\n')
-		len--;
-	return (len);
-}
-
-/* Free temporary line storage */
-static void	free_lines(char **lines, int count)
-{
-	int	i;
-
-	i = 0;
-	while (i < count)
-	{
-		if (lines[i])
-			free(lines[i]);
-		i++;
-	}
-	free(lines);
-}
-
-/* Build map array from stored lines */
-int	build_map_array(t_map *map, char **lines)
-{
-	int	i;
-	int	j;
-	int	len;
-
-	map->layout = malloc((map->height + 1) * sizeof(char *));
-	if (!map->layout)
-		return (1);
-	map->layout[map->height] = NULL;
-	j = -1;
-	while (++j < map->height)
-	{
-		map->layout[j] = malloc((map->width + 1) * sizeof(char));
-		if (!map->layout[j])
-			return (1);
-		len = ft_strlen(lines[j]);
-		i = -1;
-		while (++i < map->width)
-		{
-			if (i < len && lines[j][i] != '\n' && lines[j][i] != ' ')
-				map->layout[j][i] = lines[j][i];
-			else
-				map->layout[j][i] = '1';
-		}
-		map->layout[j][i] = '\0';
-	}
+	main->map->player_card = true;
 	return (0);
 }
 
@@ -97,67 +41,54 @@ static int	validate_map(t_main *main)
 	int	i;
 	int	j;
 
-	j = -1;
-	while (++j < main->map->height)
+	j = 0;
+	while (j < main->map->height)
 	{
-		i = -1;
-		while (++i < main->map->width)
+		i = 0;
+		while (i < main->map->width)
 		{
-			if (i == 0 || j == 0 || i == main->map->width - 1
-				|| j == main->map->height - 1)
+			if (i == 0 || j == 0
+				|| i == main->map->width - 1 || j == main->map->height - 1)
 			{
 				if (main->map->layout[j][i] != '1')
-				{
-					printf("Error at [%d][%d]: '%c'\n", j, i,
-						main->map->layout[j][i]);
 					error2exit("Error: The walls aren't enclosed\n", 1);
-				}
 			}
-			else if (main->map->layout[j][i] == 'N'
-				|| main->map->layout[j][i] == 'S'
-				|| main->map->layout[j][i] == 'W'
-				|| main->map->layout[j][i] == 'E')
+			else if (ft_strchr("NSWE",
+					main->map->layout[j][i]))
 				player_position(main, i, j);
+			i++;
 		}
+		j++;
 	}
+	if (!main->map->player_card)
+		error2exit("Error: No player in cub\n", 2);
 	return (0);
 }
 
-/* Parse map content - read once and store in memory */
+/* Finalize map creation */
+static int	finalize_map(t_main *main, t_map *map, char **lines)
+{
+	if (build_map_array(map, lines))
+		return (free_lines(lines, map->height), 1);
+	free_lines(lines, map->height);
+	validate_map(main);
+	return (0);
+}
+
+/* Parse map content */
 int	parse_map_content(t_main *main, t_map *map)
 {
-	char	*temp;
 	char	**lines;
 	int		count;
 
 	lines = malloc(sizeof(char *) * 256);
 	if (!lines)
 		return (1);
-	count = 0;
-	map->width = 0;
-	while (1)
-	{
-		temp = get_next_line(main->mapfile_id);
-		if (!temp)
-			break ;
-		if (temp[0] == '\n')
-		{
-			free(temp);
-			continue ;
-		}
-		if (check_valid_map(temp))
-			return (free(temp), free_lines(lines, count), 1);
-		if (get_line_len(temp) > map->width)
-			map->width = get_line_len(temp);
-		lines[count++] = temp;
-	}
-	map->height = count;
+	count = read_map_lines(main, map, lines);
 	close(main->mapfile_id);
-	if (build_map_array(map, lines))
-		return (free_lines(lines, count), 1);
-	free_lines(lines, count);
-	validate_map(main);
-	if (map->player_card)
-		error2exit("Error: No player in cub\n", 2);
+	if (count <= 0)
+		return (free(lines), 1);
+	if (finalize_map(main, map, lines))
+		return (1);
 	return (0);
 }

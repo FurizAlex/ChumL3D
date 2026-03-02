@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   casting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 22:54:49 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/01/09 18:52:01 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:34:34 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	perform_dda(t_main *main, t_ray *ray)
 		{
 			ray->side_dist_x += ray->delta_dist_x;
 			ray->map_x += ray->step_x;
-			ray->side = 0;// East-West wall
+			ray->side = 0;
 		}
 		else
 		{
 			ray->side_dist_y += ray->delta_dist_y;
 			ray->map_y += ray->step_y;
-			ray->side = 1;// North-South wall
+			ray->side = 1;
 		}
 		if (main->map->layout[ray->map_y][ray->map_x] == '1')
 			ray->hit = 1;
@@ -81,18 +81,27 @@ void	calculate_wall_height(t_ray *ray)
 
 void	draw_wall_stripe(t_main *main, int x)
 {
-	int		y;
-	int		color;
+	int	y;
+	int	color;
 
-	// Draw ceiling
 	y = 0;
 	while (y < main->current_ray.draw_start)
-		put_pixel(main, x, y++, 0x87CEEB);  // Sky blue
-	// Draw wall
-	color = (main->current_ray.side == 1) ? 0xAAAAAA : 0xFFFFFF;
+	{
+		put_pixel(main, x, y, 0x87CEEB);
+		y++;
+	}
+	if (main->current_ray.side == 1)
+		color = 0xAAAAAA;
+	else
+		color = 0xFFFFFF;
 	while (y < main->current_ray.draw_end)
-		put_pixel(main, x, y++, color);
-	// Draw floor
+	{
+		put_pixel(main, x, y, color);
+		y++;
+	}
 	while (y < HEIGHT)
-		put_pixel(main, x, y++, 0x8B4513);  // Brown
+	{
+		put_pixel(main, x, y, 0x8B4513);
+		y++;
+	}
 }

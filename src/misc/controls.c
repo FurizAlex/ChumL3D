@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:40:49 by alechin           #+#    #+#             */
-/*   Updated: 2026/02/04 18:54:28 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/01 23:05:05 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	looker_keys(int code, t_main *main)
 	return (0);
 }
 
-int key_release(int code, t_main *main)
+int	key_release(int code, t_main *main)
 {
 	if (code == UP)
 		main->states.up = false;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:42:58 by alechin           #+#    #+#             */
-/*   Updated: 2026/02/23 16:00:29 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:34:46 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,3 @@ bool	is_texture(t_main *main, char *line, int *texture)
 	main->map_start++;
 	return (true);
 }
-

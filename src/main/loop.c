@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 21:47:45 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/02/04 14:51:01 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/01 23:04:44 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Execution.h"
 #include "Parsing.h"
 
-void	clear_screen(t_main* main)
+void	clear_screen(t_main *main)
 {
 	int	x;
 	int	y;
@@ -58,6 +58,5 @@ int	game_loop(t_main *main)
 	}
 	mlx_put_image_to_window(main->mlx_pointer,
 		main->win_pointer, main->screen.image, 0, 0);
-	// display_fps(main);
 	return (0);
 }
