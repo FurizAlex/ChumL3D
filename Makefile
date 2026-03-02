@@ -6,7 +6,7 @@
 #    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 12:01:54 by furizalex         #+#    #+#              #
-#    Updated: 2026/03/02 11:36:15 by alechin          ###   ########.fr        #
+#    Updated: 2026/03/02 14:16:13 by alechin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SOURCE = \
 	src/parsing/parse/parse_map.c			\
 	src/parsing/parse/parse_map_utils.c		\
 	src/parsing/parse/parse.c				\
+	src/parsing/parse/parse_memory.c		\
 	src/parsing/parse/parsing_utils.c		\
 	src/parsing/texture/textures.c			\
 	src/parsing/texture/textures2.c			\

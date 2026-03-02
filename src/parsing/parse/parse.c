@@ -65,7 +65,10 @@ int	parse_scene(t_main *main, t_map *map)
 	while (++index < 5)
 		main->texture_path[index] = NULL;
 	if (parse_file(main))
+	{
+		close(main->mapfile_id);
 		return (error2exit("Error: .cub file error!\n", 2), 2);
+	}
 	if (verify_texture(main, main->images))
 		return (close_button(main), 1);
 	if (parse_map_content(main, map))

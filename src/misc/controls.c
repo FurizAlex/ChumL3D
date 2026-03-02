@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:40:49 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/01 23:05:05 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/02 13:07:05 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	close_button(t_main *main)
 /* -- MOVEMENT KEYS FOR.. moving & ARROW KEYS FOR ROTATING PLANE -- */
 int	looker_keys(int code, t_main *main)
 {
+	if (code == ESCAPE)
+		close_button(main);
 	if (code == UP)
 		main->states.up = true;
 	if (code == DOWN)

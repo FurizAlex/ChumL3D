@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:10 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/02 11:41:31 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/02 14:12:30 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ t_images	*struct_image(void);
 
 /* -- Initialization for Player -- */
 void		init_player(t_main *main);
+
+/* -- Free -- */
+void		free_map_rows(t_map *map, int count);
 
 #endif

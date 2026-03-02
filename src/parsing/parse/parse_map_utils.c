@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_maps_utils.c                                 :+:      :+:    :+:   */
+/*   parse_map_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 10:53:10 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/02 11:03:25 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/02 14:14:31 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	build_map_array(t_map *map, char **lines)
 	{
 		map->layout[j] = malloc((map->width + 1) * sizeof(char));
 		if (!map->layout[j])
-			return (1);
+			return (free_map_rows(map, j), 1);
 		fill_map_row(map, lines, j);
 		j++;
 	}
