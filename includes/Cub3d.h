@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:19 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/02 13:05:17 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/04 10:23:11 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ typedef struct s_map
 	int		dir;
 	int		x_position;
 	int		y_position;
-	bool	player_card;
+	int		player_card;
 	char	**layout;
 }	t_map;
 

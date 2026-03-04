@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:45:42 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/02 11:12:44 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/04 10:47:08 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ bool	is_valid_map_character(char c)
 /* Gets the player position */
 int	player_position(t_main *main, int i, int j)
 {
-	if (!main->map->player_card)
-		error2exit("Error: More than one player on the map\n", 1);
+	main->map->player_card++;
+	if (main->map->player_card > 1)
+		error2exit("Error: More or less than one player on the map\n", 1);
 	main->map->dir = main->map->layout[j][i];
 	main->map->layout[j][i] = '0';
 	main->map->x_position = i;
 	main->map->y_position = j;
-	main->map->player_card = true;
 	return (0);
 }
 
@@ -60,7 +60,7 @@ static int	validate_map(t_main *main)
 		}
 		j++;
 	}
-	if (!main->map->player_card)
+	if (main->map->player_card == 0)
 		error2exit("Error: No player in cub\n", 2);
 	return (0);
 }
@@ -81,7 +81,7 @@ int	parse_map_content(t_main *main, t_map *map)
 	char	**lines;
 	int		count;
 
-	lines = malloc(sizeof(char *) * 256);
+	lines = malloc(sizeof(char *) * 1024);
 	if (!lines)
 		return (1);
 	count = read_map_lines(main, map, lines);

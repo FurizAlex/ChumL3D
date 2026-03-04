@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:07:55 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/02 13:07:25 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/04 10:31:35 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int argc, char *argv[])
 	ft_memset(&main, 0, sizeof(main));
 	ft_memset(&map, 0, sizeof(map));
 	main.map = &map;
-	map.player_card = true;
+	map.player_card = 0;
 	if (validate_args(argc, argv, &main))
 		return (1);
 	if (init_mlx_window(&main))

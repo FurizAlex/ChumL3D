@@ -6,7 +6,7 @@
 #    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 12:01:54 by furizalex         #+#    #+#              #
-#    Updated: 2026/03/02 14:16:13 by alechin          ###   ########.fr        #
+#    Updated: 2026/03/02 14:53:21 by alechin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = cub3D
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -no-pie -g -I$(CUB3D_HEADER_DIRECTORY)
 RM = rm -rf
+
+FSAN = -fsanitize=address
 
 LIBFT = $(LIBFT_DIRECTORY)/libft.a
 MLX = $(MLX_DIRECTORY)/libmlx_Linux.a

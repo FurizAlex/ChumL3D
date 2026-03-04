@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:10 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/02 14:12:30 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/04 11:18:15 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int			get_line_len(char *line);
 void		free_lines(char **lines, int count);
 int			read_map_lines(t_main *main, t_map *map, char **lines);
 int			build_map_array(t_map *map, char **lines);
+int			overcharge(int count, char **lines, char *temp);
 
 /* -- Texture -- */
 int			load_single_texture(t_main *main, int i, char *path);
@@ -70,6 +71,7 @@ t_images	*struct_image(void);
 
 /* -- Initialization for Player -- */
 void		init_player(t_main *main);
+int			player_position(t_main *main, int x, int y);
 
 /* -- Free -- */
 void		free_map_rows(t_map *map, int count);
