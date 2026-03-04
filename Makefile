@@ -6,7 +6,7 @@
 #    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 12:01:54 by furizalex         #+#    #+#              #
-#    Updated: 2026/03/02 14:53:21 by alechin          ###   ########.fr        #
+#    Updated: 2026/03/04 11:56:04 by alechin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ MLX_DIRECTORY = minilibx-linux
 SOURCE = \
 	src/main/bootloader.c					\
 	src/main/cub3d.c						\
+	src/main/free.c							\
 	src/main/initializing.c					\
 	src/main/loop.c							\
 	src/misc/controls.c						\

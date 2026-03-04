@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:19 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/04 10:23:11 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/04 11:56:35 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,5 +204,6 @@ void	error2exit(char *message, int status);
 t_main	*struct_main(void);
 int		initializing_mlx(t_main *main, t_map *map);
 int		initializing_menu(t_main *main);
+void	clean_free(t_main *main);
 
 #endif

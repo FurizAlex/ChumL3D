@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:40:49 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/02 13:07:05 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/04 11:57:57 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	close_button(t_main *main)
 		free(main->mlx_pointer);
 	}
 	close(main->mapfile_id);
+	clean_free(main);
 	exit(0);
 }
 
