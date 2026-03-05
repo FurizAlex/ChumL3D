@@ -17,21 +17,26 @@ static int	handle_line(t_main *main, char *line, int *texture, int *colors)
 {
 	if (line[0] == '\n' || line[0] == '\0')
 	{
-		main->map_start++;
-		free(line);
+		increment_map_start(main, line);
 		return (0);
 	}
-	if (line[0] == 'F' || line[0] == 'C')
+	if (line[0] == 'F')
 	{
+		main->floor_color = parse_rgb(line);
 		(*colors)++;
-		main->map_start++;
-		free(line);
+		increment_map_start(main, line);
+		return (0);
+	}
+	if (line[0] == 'C')
+	{
+		main->ceiling_color = parse_rgb(line);
+		(*colors)++;
+		increment_map_start(main, line);
 		return (0);
 	}
 	if (is_texture(main, line, texture))
 		return (1);
-	main->map_start++;
-	free(line);
+	increment_map_start(main, line);
 	return (0);
 }
 

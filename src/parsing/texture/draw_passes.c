@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_passes.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 15:23:14 by alechin           #+#    #+#             */
-/*   Updated: 2026/02/26 16:08:39 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/05 17:04:43 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cub3D.h"
+#include "Cub3d.h"
 #include "Parsing.h"
 #include "Execution.h"
 
@@ -21,7 +21,7 @@ int	draw_ceiling(t_main *main, int x)
 	y = 0;
 	while (y < main->current_ray.draw_start)
 	{
-		put_pixel(main, x, y, 0x87CEEB);
+		put_pixel(main, x, y, main->ceiling_color);
 		y++;
 	}
 	return (y);
@@ -31,7 +31,7 @@ void	draw_floor(t_main *main, int x, int y)
 {
 	while (y < HEIGHT)
 	{
-		put_pixel(main, x, y, 0x8B4513);
+		put_pixel(main, x, y, main->floor_color);
 		y++;
 	}
 }

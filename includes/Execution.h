@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Execution.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 21:26:49 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/03/02 13:06:57 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/04 19:01:47 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 void			calc_step_and_side_dist(t_main *main, t_ray *ray);
 void			perform_dda(t_main *main, t_ray *ray);
 void			calculate_wall_height(t_ray *ray);
-void			draw_wall_stripe(t_main *main, int x);
 void			cast_ray(t_main *main, int x);
 
 void			clear_screen(t_main *main);

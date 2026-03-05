@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   casting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 22:54:49 by rpadasia          #+#    #+#             */
-/*   Updated: 2026/03/02 11:34:34 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/05 17:15:18 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,31 +77,4 @@ void	calculate_wall_height(t_ray *ray)
 	ray->draw_end = ray->line_height / 2 + HEIGHT / 2;
 	if (ray->draw_end >= HEIGHT)
 		ray->draw_end = HEIGHT - 1;
-}
-
-void	draw_wall_stripe(t_main *main, int x)
-{
-	int	y;
-	int	color;
-
-	y = 0;
-	while (y < main->current_ray.draw_start)
-	{
-		put_pixel(main, x, y, 0x87CEEB);
-		y++;
-	}
-	if (main->current_ray.side == 1)
-		color = 0xAAAAAA;
-	else
-		color = 0xFFFFFF;
-	while (y < main->current_ray.draw_end)
-	{
-		put_pixel(main, x, y, color);
-		y++;
-	}
-	while (y < HEIGHT)
-	{
-		put_pixel(main, x, y, 0x8B4513);
-		y++;
-	}
 }

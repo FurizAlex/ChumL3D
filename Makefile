@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
+#    By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 12:01:54 by furizalex         #+#    #+#              #
-#    Updated: 2026/03/04 11:56:04 by alechin          ###   ########.fr        #
+#    Updated: 2026/03/05 17:10:48 by rpadasia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SOURCE = \
 	src/parsing/parse/parse_checker.c		\
 	src/parsing/parse/parse_directions.c	\
 	src/parsing/parse/parse_map.c			\
+	src/parsing/parse/parse_map_utils2.c	\
 	src/parsing/parse/parse_map_utils.c		\
 	src/parsing/parse/parse.c				\
 	src/parsing/parse/parse_memory.c		\

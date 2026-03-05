@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:19 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/04 11:56:35 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/05 16:55:25 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # define LEFT 97
 # define RIGHT 100
 /* -- LEFT ARROW & RIGHT ARROW -- */
-# define LEFT_L_ARROW 65361
-# define RIGHT_R_ARROW 65363
+# define LEFT_L_ARROW 65363
+# define RIGHT_R_ARROW 65361
 /* -- PRETTY SELF-EXPLANETARY -- */
 # define ESCAPE 65307
 # define SPACE 32
@@ -172,7 +172,7 @@ typedef struct s_ray
 	int		step_x;
 	int		step_y;
 	int		hit;
-	int		side;//NS or EW only rmbr
+	int		side;
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
@@ -187,6 +187,8 @@ typedef struct s_main
 	int				map_start;
 	char			*mapfile_name;
 	char			**texture_path;
+	unsigned int	floor_color;
+	unsigned int	ceiling_color;
 	t_ray			current_ray;
 	t_player		player;
 	t_map			*map;

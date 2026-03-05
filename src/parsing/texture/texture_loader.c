@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   texture_loader.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 21:31:19 by alechin           #+#    #+#             */
-/*   Updated: 2026/02/26 16:13:27 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/04 18:49:29 by rpadasia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cub3D.h"
-#include "parsing.h"
+#include "Cub3d.h"
+#include "Parsing.h"
 
 int	load_single_texture(t_main *main, int i, char *path)
 {
