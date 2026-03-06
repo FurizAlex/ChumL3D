@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:40:49 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/04 11:57:57 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/06 16:24:54 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,6 @@
 /* -- HANDLES THE X BUTTON -- */
 int	close_button(t_main *main)
 {
-	if (main->screen.image)
-		mlx_destroy_image(main->mlx_pointer, main->screen.image);
-	if (main->mlx_pointer)
-		mlx_destroy_window(main->mlx_pointer, main->win_pointer);
-	if (main->mlx_pointer)
-	{
-		mlx_destroy_display(main->mlx_pointer);
-		free(main->mlx_pointer);
-	}
 	close(main->mapfile_id);
 	clean_free(main);
 	exit(0);

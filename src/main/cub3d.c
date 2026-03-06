@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:07:55 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/04 11:56:44 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/06 16:23:34 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,5 @@ int	main(int argc, char *argv[])
 	printf("Map size: %d x %d\n", map.width, map.height);
 	setup_hooks(&main);
 	mlx_loop(main.mlx_pointer);
-	clean_free(&main);
 	return (0);
 }

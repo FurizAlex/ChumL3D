@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:10 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/05 17:13:49 by rpadasia         ###   ########.fr       */
+/*   Updated: 2026/03/06 15:52:43 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "Cub3d.h"
 
 /* -- Textures -- */
-void			free_texture_paths(t_main *main);
 int				verify_texture(t_main *main, t_images *img);
 int				get_xpm_data(t_main *main, t_images *img, int i);
 int				texture_detector(char *line);
