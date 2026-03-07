@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 10:53:10 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/04 11:17:34 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/07 12:01:07 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	read_map_lines(t_main *main, t_map *map, char **lines)
 		}
 		if (check_valid_map(temp))
 			return (free(temp), free_lines(lines, count), -1);
+		mismatch_checker(map, temp);
 		if (get_line_len(temp) > map->width)
 			map->width = get_line_len(temp);
 		lines[count++] = temp;

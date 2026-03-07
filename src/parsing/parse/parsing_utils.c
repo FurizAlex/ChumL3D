@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:54:55 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/07 11:34:12 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/07 12:00:50 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,10 @@ void	check_surroundings(t_main *main, int x, int y)
 		|| map[y][x + 1] == ' ' || map[y][x + 1] == '\0'
 		|| map[y][x - 1] == ' ' || map[y][x - 1] == '\0')
 		error2exit("Error: Map not closed\n", 1);
+}
+
+void	mismatch_checker(t_map *map, char *temp)
+{
+	if (map->width > 0 && get_line_len(temp) != map->width)
+		error2exit("Error: Map row length mismatch\n", 1);
 }
