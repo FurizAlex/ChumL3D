@@ -1,0 +1,13 @@
+SO ./textures/c3d_castleTownWall01.xpm
+WE ./textures/c3d_castleTownWall02.xpm
+EA ./textures/c3d_castleTownWall03.xpm
+NO ./textures/c3d_castleTownWall04.xpm
+
+F 25,25,25
+C 165,45,45
+
+11111111
+1E000001
+10000001
+10000001
+11111111

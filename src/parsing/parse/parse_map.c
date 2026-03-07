@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:45:42 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/04 10:47:08 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/07 11:39:50 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ bool	is_valid_map_character(char c)
 {
 	return (c == ' ' || c == '0' || c == '1'
 		|| c == 'N' || c == 'S'
-		|| c == 'E' || c == 'W'
-		|| c == '\n');
+		|| c == 'E' || c == 'W');
 }
 
 /* Gets the player position */
@@ -38,8 +37,9 @@ int	player_position(t_main *main, int i, int j)
 /* Validate map boundaries and find player */
 static int	validate_map(t_main *main)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	tile;
 
 	j = 0;
 	while (j < main->map->height)
@@ -47,15 +47,13 @@ static int	validate_map(t_main *main)
 		i = 0;
 		while (i < main->map->width)
 		{
-			if (i == 0 || j == 0
-				|| i == main->map->width - 1 || j == main->map->height - 1)
-			{
-				if (main->map->layout[j][i] != '1')
-					error2exit("Error: The walls aren't enclosed\n", 1);
-			}
-			else if (ft_strchr("NSWE",
-					main->map->layout[j][i]))
+			tile = main->map->layout[j][i];
+			if (!is_valid_map_character(tile))
+				error2exit("Error: Invalid map character\n", 1);
+			if (ft_strchr("NSWE", tile))
 				player_position(main, i, j);
+			if (tile == '0' || ft_strchr("NSWE", tile))
+				check_surroundings(main, i, j);
 			i++;
 		}
 		j++;
