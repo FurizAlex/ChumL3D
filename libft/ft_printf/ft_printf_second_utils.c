@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_second_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:45:11 by alechin           #+#    #+#             */
-/*   Updated: 2025/01/08 16:09:53 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/08 18:20:21 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	recursive_hexa_uint(uintptr_t num, char specfs)
 	if (specfs == 'x')
 	{
 		pf_putchar("0123456789abcdef"[num % 16]);
-	}	
+	}
 	else if (specfs == 'X')
 	{
 		pf_putchar("0123456789ABCDEF"[num % 16]);

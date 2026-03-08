@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alechin <alechin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:16:21 by alechin           #+#    #+#             */
-/*   Updated: 2025/01/13 17:07:00 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/08 18:20:05 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	ft_printf(const char *str, ...)
 	va_end(lp);
 	return (total);
 }
-
+/*
 #include "ft_printf.h"
 #include <limits.h>
 #include <stdio.h>
@@ -90,4 +90,4 @@ int	ft_printf(const char *str, ...)
 int	main(void)
 {
 	ft_printf("%a\n", "hello");
-}
+}*/

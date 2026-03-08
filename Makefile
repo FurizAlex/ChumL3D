@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rpadasia <ryanpadasian@gmail.com>          +#+  +:+       +#+         #
+#    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 12:01:54 by furizalex         #+#    #+#              #
-#    Updated: 2026/03/05 17:10:48 by rpadasia         ###   ########.fr        #
+#    Updated: 2026/03/08 19:48:23 by alechin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SOURCE = \
 	src/main/loop.c							\
 	src/misc/controls.c						\
 	src/misc/movement.c						\
-	src/misc/fps.c							\
 	src/parsing/parse/parse_checker.c		\
 	src/parsing/parse/parse_directions.c	\
 	src/parsing/parse/parse_map.c			\
