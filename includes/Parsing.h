@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:08:10 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/07 12:00:58 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/09 10:59:16 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int				get_line_len(char *line);
 void			free_lines(char **lines, int count);
 int				read_map_lines(t_main *main, t_map *map, char **lines);
 int				build_map_array(t_map *map, char **lines);
-int				overcharge(int count, char **lines, char *temp);
+int				overcharge(int count, int width, char **lines, char *temp);
 void			check_surroundings(t_main *main, int x, int y);
 void			mismatch_checker(t_map *map, char *temp);
 

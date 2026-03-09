@@ -6,19 +6,21 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:54:55 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/07 12:00:50 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/09 10:59:04 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Parsing.h"
 #include "Cub3d.h"
 
-int	overcharge(int count, char **lines, char *temp)
+int	overcharge(int count, int width, char **lines, char *temp)
 {
 	if (count >= 255)
-		return (free(temp),
-			free_lines(lines, count),
-			error2exit("Error: Map too large\n", 1), -1);
+		return (free(temp), free_lines(lines, count),
+			error2exit("Error: Map too tall\n", 1), -1);
+	if (width >= 255)
+		return (free(temp), free_lines(lines, count),
+			error2exit("Error: Map too wide\n", 1), -1);
 	return (0);
 }
 

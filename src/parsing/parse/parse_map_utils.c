@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 10:53:10 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/07 12:01:07 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/09 10:59:40 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	read_map_lines(t_main *main, t_map *map, char **lines)
 		temp = get_next_line(main->mapfile_id);
 		if (!temp)
 			break ;
-		overcharge(count, lines, temp);
+		if (overcharge(count, get_line_len(temp), lines, temp))
+			return (-1);
 		if (temp[0] == '\n')
 		{
 			free(temp);
