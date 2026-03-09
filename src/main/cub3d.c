@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 21:07:55 by alechin           #+#    #+#             */
-/*   Updated: 2026/03/09 11:06:19 by alechin          ###   ########.fr       */
+/*   Updated: 2026/03/09 11:13:34 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	error2exit(char *message, int status)
 {
-	t_main *main;
+	t_main	*main;
 
 	main = struct_main();
 	close(main->mapfile_id);
